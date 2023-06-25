@@ -18,8 +18,25 @@ public class Pizza : MonoBehaviour
 		ingredientCanvas = GetComponentInChildren<Canvas>();
 		ingredientImage = ingredientCanvas.transform.GetChild(0).gameObject;
 		ingredientImage.SetActive(false);
+		this.GetComponent<XRGrabInteractable>().selectExited.AddListener(AttachToSlot);
+
 	}
 
+	private void AttachToSlot(SelectExitEventArgs arg0)
+	{
+		if (pizzaSlot && newBox.pizza == null)
+		{
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			this.GetComponent<XRGrabInteractable>().enabled = false;
+			this.GetComponent<BoxCollider>().enabled = false;
+			this.transform.parent = pizzaSlot.transform.parent;
+			this.transform.position = pizzaSlot.transform.position;
+			this.transform.rotation = pizzaSlot.transform.rotation;
+			newBox.pizza = this;
+			pizzaSlot.SetActive(false);
+
+		}
+	}
 
 	public void AddIngredient(Ingredient ingredient)
 	{
@@ -71,21 +88,5 @@ public class Pizza : MonoBehaviour
 		}
 	}
 
-	public void AttachToSlot()
-	{
-
-		if (pizzaSlot && newBox.pizza == null)
-		{
-			this.GetComponent<Rigidbody>().isKinematic = true;
-			this.GetComponent<XRGrabInteractable>().enabled = false;
-			this.GetComponent<BoxCollider>().enabled = false;
-			this.transform.parent = pizzaSlot.transform.parent;
-			this.transform.position = pizzaSlot.transform.position;
-			this.transform.rotation = pizzaSlot.transform.rotation;
-			newBox.pizza = this;
-			pizzaSlot.SetActive(false);
-
-		}
-	}
 
 }

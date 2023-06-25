@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PizzaContainer : MonoBehaviour
 {
-    public List<GameObject> previews;
-    public List<Pizza> pizzas;
+    public PizzaBoxController pizzaBox;
     // Start is called before the first frame update
     void Start()
     {

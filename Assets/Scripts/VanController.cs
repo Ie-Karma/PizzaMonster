@@ -12,19 +12,23 @@ public class VanController : MonoBehaviour
 	public XRSlider throttle;
 	private float wheelVal, throttleVal;
 	private Animator vanAnimator;
+	public List<PizzaContainer> PizzaContainers;
 
 	private Rigidbody carRigidbody;
 	private float steerAngle = 0f;
 	private AudioSource audioSource;
 	public GameObject player,drivingPlayer;
 	
-	public List<PizzaBoxController> pizzaBoxes = new List<PizzaBoxController>();
-
 	private void Start()
 	{
 		carRigidbody = GetComponent<Rigidbody>();
 		audioSource = GetComponent<AudioSource>();
 		vanAnimator = GetComponent<Animator>();
+	}
+
+	public void OpenBackDoor()
+	{
+		vanAnimator.SetTrigger("OpenBackDoor");
 	}
 
 	public void StartDriving(bool start)

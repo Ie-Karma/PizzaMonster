@@ -4644,13 +4644,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactors:
-  - {fileID: 5024247987278233187}
-  - {fileID: 2133402892933418128}
   - {fileID: 7003697072748152525}
   - {fileID: 6335522759242739059}
-  - {fileID: 7225694132084005498}
-  - {fileID: 2174409395056234523}
   - {fileID: 4669464298858586836}
   - {fileID: 5912766218564611513}
   xrOrigin: {fileID: 8567332976339719140}
   drivingTransform: {fileID: 0}
+  exitTransform: {fileID: 0}
