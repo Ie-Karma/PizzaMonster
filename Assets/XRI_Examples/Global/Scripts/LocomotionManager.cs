@@ -280,8 +280,8 @@ namespace UnityEngine.XR.Content.Interaction
             if (m_ComfortMode != null)
                 m_ComfortMode.SetActive(m_EnableComfortMode);
 
-            m_DynamicMoveProvider.useGravity = m_UseGravity;
-            m_TwoHandedGrabMoveProvider.useGravity = m_UseGravity;
+            m_DynamicMoveProvider.useGravity = m_UseGravity;/*
+            //m_TwoHandedGrabMoveProvider.useGravity = m_UseGravity;
             m_TwoHandedGrabMoveProvider.leftGrabMoveProvider.useGravity = m_UseGravity;
             m_TwoHandedGrabMoveProvider.rightGrabMoveProvider.useGravity = m_UseGravity;
             if (m_UseGravity)
@@ -300,6 +300,7 @@ namespace UnityEngine.XR.Content.Interaction
             m_TwoHandedGrabMoveProvider.enabled = m_EnableGrabMovement;
             m_TwoHandedGrabMoveProvider.leftGrabMoveProvider.enabled = m_EnableGrabMovement;
             m_TwoHandedGrabMoveProvider.rightGrabMoveProvider.enabled = m_EnableGrabMovement;
+            */
         }
 
         void SetMoveScheme(LocomotionType scheme, bool leftHand)
