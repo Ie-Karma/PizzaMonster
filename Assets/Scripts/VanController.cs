@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Content.Interaction;
 
@@ -12,6 +13,8 @@ public class VanController : MonoBehaviour
 
 	private Rigidbody carRigidbody;
 	private float steerAngle = 0f;
+	
+	public List<PizzaBoxController> pizzaBoxes = new List<PizzaBoxController>();
 
 	private void Start()
 	{

@@ -34,13 +34,14 @@ public class PizzaBoxController : MonoBehaviour
 
     public void CloseBox()
     {
-        if(((1 - percentage) * 100) < 15)
+        if(skMesh.GetBlendShapeWeight(0) > 85)
         {
             isClosed = true;
 			skMesh.SetBlendShapeWeight(0, 100);
             holder_1.GetComponent<XRGrabInteractable>().enabled = false;
             this.GetComponent<BoxCollider>().enabled = true;
             this.GetComponent<XRGrabInteractable>().enabled = true;
+            holder_1.GetComponent<SphereCollider>().enabled = false;
 		}
 	}
 }
