@@ -158,6 +158,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7110937043740649875}
+  - component: {fileID: 773593547}
+  - component: {fileID: 773593546}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -174,14 +176,41 @@ Transform:
   m_GameObject: {fileID: 7110937043740649874}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 120, y: 120, z: 120}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 400, y: 400, z: 400}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4088224022471501448}
   - {fileID: 4509697633281103511}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &773593547
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110937043740649874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009754027, y: 0.015865387, z: 0.017472839}
+  m_Center: {x: -0.001600079, y: -0.008795437, z: -0.008568573}
+--- !u!136 &773593546
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110937043740649874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0040704347
+  m_Height: 0.05320588
+  m_Direction: 1
+  m_Center: {x: 9.222283e-15, y: -0.023397021, z: 0.0009295654}
 --- !u!1 &7314476516341001013
 GameObject:
   m_ObjectHideFlags: 0

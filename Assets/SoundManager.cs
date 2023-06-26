@@ -10,12 +10,31 @@ public class SoundManager : MonoBehaviour
     [Space]
     public AudioClip[] themes;
 
-
 	private float transitionDuration = 1.0f; // Duración de la transición en segundos
 	private bool transitioning = false;
 	private float transitionTimer = 0.0f;
 	private AudioClip currentTheme;
 	private AudioClip nextTheme;
+
+	public static SoundManager instance;
+	public GameObject CompleteXRPlayer;
+
+	private void Awake()
+	{
+		// Verificar si ya existe una instancia del GameManager
+		if (instance != null && instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
+
+		// Si no existe una instancia, la establece como la instancia actual
+		instance = this;
+
+		// No destruir este objeto al cargar una nueva escena
+		DontDestroyOnLoad(gameObject);
+	}
+
 
 	private void Start()
 	{
@@ -47,22 +66,31 @@ public class SoundManager : MonoBehaviour
 			}
 		}
 	}
-	public void ChangeTheme(int themeIndex)
+	public void ChangeTheme(AudioClip nextTheme)
 	{
-		if (themeIndex >= 0 && themeIndex < themes.Length)
+		if (nextTheme)
 		{
-			if (transitioning)
+			theme.clip = nextTheme;
+			theme.Play();
+		}
+		else
+		{
+			theme.clip = themes[0];
+			theme.Play();
+		}
+		return;
+
+
+		if (transitioning)
 			{
 				// Si ya hay una transición en progreso, reiniciar el temporizador y asignar el nuevo tema
 				transitionTimer = 0.0f;
-				nextTheme = themes[themeIndex];
 			}
 			else
 			{
 				// Iniciar una nueva transición
 				transitioning = true;
 				currentTheme = theme.clip;
-				nextTheme = themes[themeIndex];
 				transitionTimer = 0.0f;
 
 				// Detener la reproducción actual si hay un tema actualmente reproduciéndose
@@ -73,11 +101,8 @@ public class SoundManager : MonoBehaviour
 				theme.clip = nextTheme;
 				theme.Play();
 			}
-		}
-		else
-		{
-			Debug.LogError("Índice de tema no válido: " + themeIndex);
-		}
+		
+
 	}
 
 }
