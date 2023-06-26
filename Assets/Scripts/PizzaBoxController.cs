@@ -20,6 +20,23 @@ public class PizzaBoxController : MonoBehaviour
         skMesh = GetComponent<SkinnedMeshRenderer>();
 		holderStart = holder_1.position;
 		this.GetComponent<XRGrabInteractable>().selectExited.AddListener(AttachToSlot);
+		this.GetComponent<XRGrabInteractable>().selectEntered.AddListener(GrabBox);
+
+
+	}
+
+	private void GrabBox(SelectEnterEventArgs arg0)
+	{
+
+		this.GetComponent<Rigidbody>().isKinematic = false;
+		this.transform.parent = null;
+
+		if (container) {
+		
+			container.gameObject.SetActive(true);
+		
+		}
+
 
 	}
 
@@ -30,6 +47,7 @@ public class PizzaBoxController : MonoBehaviour
 		this.transform.parent = container.transform;
 		this.transform.localPosition = Vector3.zero;
 		this.transform.localRotation = new Quaternion(0,0,0,0);
+		container.gameObject.SetActive(false);
 
 	}
 
