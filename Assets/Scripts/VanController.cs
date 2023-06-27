@@ -6,7 +6,8 @@ using UnityEngine.XR.Content.Interaction;
 public class VanController : MonoBehaviour
 {
 	public float maxSpeed = 20f;    
-	public float turnSpeed = 500f;   
+	public float turnSpeed = 500f;
+	public GameObject compass;
 
 	public XRKnob wheel;
 	public XRSlider throttle;
@@ -48,6 +49,19 @@ public class VanController : MonoBehaviour
 
 	private void FixedUpdate()
 	{
+
+		if (GameManager.instance.houseTarget)
+		{
+			compass.SetActive(true);
+			compass.transform.LookAt(GameManager.instance.houseTarget.transform);
+		}
+		else {
+
+			compass.SetActive(false);
+
+		}
+
+
 		wheelVal = wheel.value;
 		throttleVal = throttle.value - 0.5f;
 		float speed = 0;

@@ -23,7 +23,10 @@ public class Ingredient : MonoBehaviour
 		Tomato,
 		Radicchio,
 		Bacon,
-		Egg
+		Egg,
+		Bone,
+		Blood,
+		Random
 
 	}
 	private void Start()

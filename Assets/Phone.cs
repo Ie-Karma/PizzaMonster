@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Phone : MonoBehaviour
 {
     // Start is called before the first frame update
     public Transform telefono, baseTelefono;
-    private LineRenderer lineRenderer;
+    public LineRenderer lineRenderer;
 	public int numPuntos = 10;  // Número de puntos intermedios
 	public float maxDeformacion = 0.1f;  // Máxima deformación del cable
 
@@ -15,15 +16,48 @@ public class Phone : MonoBehaviour
 	public AudioSource audioSource;
 	private bool isCalling = false;
 	private int actualCall = 0;
+	private bool canPlace,placed = false;
+	public GameObject slot;
+	public bool debugPlace = false;
 
 	void Start()
     {
         
-        lineRenderer = GetComponent<LineRenderer>();
 		lineRenderer.positionCount = numPuntos + 2;  // +2 para incluir el teléfono y la base
 
 		GetCall(0);
 
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject == slot)
+		{
+			canPlace = true;
+			slot.GetComponent<MeshRenderer>().enabled = true;
+		}
+	}
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.gameObject == slot)
+		{
+
+			canPlace = false;
+			slot.GetComponent<MeshRenderer>().enabled = false;
+
+		}
+	}
+
+	public void PlacePhone()
+	{
+		if (canPlace)
+		{
+			this.transform.position = slot.transform.position;
+			this.transform.rotation = slot.transform.rotation;
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			slot.GetComponent<MeshRenderer>().enabled = false;
+
+		}
 	}
 
 	public void GetCall(int i) { 
@@ -49,6 +83,7 @@ public class Phone : MonoBehaviour
 			isCalling = false;
 		}
 
+		this.GetComponent<Rigidbody>().isKinematic = false;
 	}
 
 	private IEnumerator AnswerCallCoroutine()
@@ -76,6 +111,11 @@ public class Phone : MonoBehaviour
 	void Update()
 	{
 		GenerateCable();
+		if(debugPlace)
+		{
+			PlacePhone();
+			debugPlace = false;
+		}
 	}
 
 	private void GenerateCable() {

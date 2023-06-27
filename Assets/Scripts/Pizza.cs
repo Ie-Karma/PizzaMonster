@@ -88,5 +88,10 @@ public class Pizza : MonoBehaviour
 		}
 	}
 
+	internal void CompletePizza()
+	{
 
+		Debug.Log("Pizza is complete");
+
+	}
 }
