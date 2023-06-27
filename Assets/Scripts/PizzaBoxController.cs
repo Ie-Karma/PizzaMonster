@@ -77,17 +77,12 @@ public class PizzaBoxController : MonoBehaviour
 
 	private void OnTriggerExit(Collider other)
 	{
-        if (container != null && other.TryGetComponent<PizzaContainer>(out PizzaContainer cont))
-        {
-			if (cont == container)
-			{
-
-                container = null;
-				container.GetComponent<MeshRenderer>().enabled = false;
-
-			}
+		if (other.TryGetComponent<PizzaContainer>(out PizzaContainer cont))
+		{
+			container = null;
+			container.GetComponent<MeshRenderer>().enabled = false;
 		}
-		
+
 	}
 
 	public void CloseBox()

@@ -26,12 +26,15 @@ public class Phone : MonoBehaviour
 		lineRenderer.positionCount = numPuntos + 2;  // +2 para incluir el teléfono y la base
 
 		GetCall(0);
+		canPlace = true;
+		PlacePhone();
+		slot.GetComponent<MeshRenderer>().enabled = false;
 
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject == slot)
+		if (other.gameObject == slot && !placed)
 		{
 			canPlace = true;
 			slot.GetComponent<MeshRenderer>().enabled = true;
@@ -56,12 +59,12 @@ public class Phone : MonoBehaviour
 			this.transform.rotation = slot.transform.rotation;
 			this.GetComponent<Rigidbody>().isKinematic = true;
 			slot.GetComponent<MeshRenderer>().enabled = false;
-
+			placed = true;
 		}
 	}
 
-	public void GetCall(int i) { 
-	
+	public void GetCall(int i) {
+
 		audioSource.clip = ring; audioSource.Play();
 		isCalling = true;
 		actualCall = i;
@@ -82,7 +85,7 @@ public class Phone : MonoBehaviour
 
 			isCalling = false;
 		}
-
+		placed = false;
 		this.GetComponent<Rigidbody>().isKinematic = false;
 	}
 
@@ -111,11 +114,8 @@ public class Phone : MonoBehaviour
 	void Update()
 	{
 		GenerateCable();
-		if(debugPlace)
-		{
-			PlacePhone();
-			debugPlace = false;
-		}
+		this.GetComponent<Rigidbody>().isKinematic = placed;
+
 	}
 
 	private void GenerateCable() {

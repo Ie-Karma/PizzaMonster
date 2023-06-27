@@ -29,8 +29,13 @@ public class IngredientBlackboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if (pizza)
+		{
+			CheckPizzaIngredients();
 
-    }
+		}
+
+	}
 
 	public void CheckPizzaIngredients()
 	{
