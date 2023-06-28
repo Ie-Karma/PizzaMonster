@@ -63,6 +63,10 @@ public class VanController : MonoBehaviour
 		}
 
 		*/
+
+		compass.transform.LookAt(GameManager.instance.houseTarget.transform);
+
+
 		wheelVal = wheel.value;
 		throttleVal = throttle.value - 0.5f;
 		float speed = 0;
