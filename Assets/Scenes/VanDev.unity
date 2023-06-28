@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0031405094, g: 0.0061705993, b: 0.014241768, a: 1}
+  m_IndirectSpecularColor: {r: 0.0031379783, g: 0.006173142, b: 0.014224448, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1796,7 +1796,7 @@ MonoBehaviour:
   - {fileID: 773584642}
   - {fileID: 1469550311}
   - {fileID: 487838579}
-  acttualLevel: 0
+  acttualLevel: 1
   phone: {fileID: 7194629394537083801}
   barrera: {fileID: 573848639}
 --- !u!1 &229660063
@@ -2254,6 +2254,18 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
       - m_Target: {fileID: 919132149210261650}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 852946730}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -20194,7 +20206,7 @@ PrefabInstance:
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[5].m_Mode
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
@@ -20230,7 +20242,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[5].m_Target
       value: 
-      objectReference: {fileID: 212818992}
+      objectReference: {fileID: 852946730}
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -20304,7 +20316,7 @@ PrefabInstance:
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[5].m_MethodName
-      value: NextLevel
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
@@ -20344,7 +20356,7 @@ PrefabInstance:
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[5].m_TargetAssemblyTypeName
-      value: LevelManager, Assembly-CSharp
+      value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3691857187723875651, guid: b0a8c6120d4a92645b2f801da101d1b1,
         type: 3}

@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Phone phone;
     private List<IngredientBlackboard> actualBBs;
     private bool completed = false;
-    private bool prevCompleted = true;
+    private bool prevCompleted = false;
 	public GameObject barrera;
 	// Start is called before the first frame update
 	void Start()
@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
         actualBBs.Add(GameManager.instance.blackBoards[0]);
 		actualBBs.Add(GameManager.instance.blackBoards[1]);
 		GameManager.instance.actualBB = actualBBs[0];
+
+		phone.GetCall(0);
 
 	}
 
@@ -42,7 +44,7 @@ public class LevelManager : MonoBehaviour
 
         GameManager.instance.houseTarget = houses[0];
         prevCompleted = true;
-
+		NextLevel();
 
 	}
 

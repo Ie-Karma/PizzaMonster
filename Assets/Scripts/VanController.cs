@@ -50,6 +50,7 @@ public class VanController : MonoBehaviour
 	private void FixedUpdate()
 	{
 
+		/*
 		if (GameManager.instance.houseTarget)
 		{
 			compass.SetActive(true);
@@ -61,7 +62,7 @@ public class VanController : MonoBehaviour
 
 		}
 
-
+		*/
 		wheelVal = wheel.value;
 		throttleVal = throttle.value - 0.5f;
 		float speed = 0;

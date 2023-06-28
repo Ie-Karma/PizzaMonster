@@ -25,7 +25,7 @@ public class Phone : MonoBehaviour
         
 		lineRenderer.positionCount = numPuntos + 2;  // +2 para incluir el teléfono y la base
 
-		GetCall(0);
+		//GetCall(0);
 		canPlace = true;
 		PlacePhone();
 		slot.GetComponent<MeshRenderer>().enabled = false;

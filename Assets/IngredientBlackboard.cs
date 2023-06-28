@@ -68,7 +68,6 @@ public class IngredientBlackboard : MonoBehaviour
 
 		if (allCompleted)
 		{
-			pizza.CompletePizza();
 			isCompleted = true;
 		}
 	}
