@@ -43,11 +43,22 @@ public class PizzaBoxController : MonoBehaviour
 	private void AttachToSlot(SelectExitEventArgs arg0)
 	{
 
-		this.GetComponent<Rigidbody>().isKinematic = true;
-		this.transform.parent = container.transform;
-		this.transform.localPosition = Vector3.zero;
-		this.transform.localRotation = new Quaternion(0,0,0,0);
-		container.gameObject.SetActive(false);
+
+
+		if (container.isHouse) {
+
+			container.AddPizza();
+			this.gameObject.SetActive(false);
+
+		}
+		else
+		{
+			this.GetComponent<Rigidbody>().isKinematic = true;
+			this.transform.parent = container.transform.parent;
+			container.gameObject.SetActive(false);
+			//this.transform.localPosition = Vector3.zero;
+			//this.transform.localRotation = new Quaternion(0,0,0,0);
+		}
 
 	}
 

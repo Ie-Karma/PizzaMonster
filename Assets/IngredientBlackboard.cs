@@ -19,6 +19,7 @@ public class IngredientBlackboard : MonoBehaviour
 {
     public Pizza pizza;
 	public List<BlackboardElement> pizzaElements;
+	public bool isCompleted = false;
 
 
 	void Start()
@@ -68,6 +69,7 @@ public class IngredientBlackboard : MonoBehaviour
 		if (allCompleted)
 		{
 			pizza.CompletePizza();
+			isCompleted = true;
 		}
 	}
 

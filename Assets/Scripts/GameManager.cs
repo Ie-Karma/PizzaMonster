@@ -4,11 +4,13 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance;
 	public Pizza pizzaPref;
+	public GameObject boxPref;
 	public GameObject CompleteXRPlayer;
 	public GameObject houseTarget;
 	public IngredientBlackboard[] blackBoards;
 	private Pizza actualPizza;
 	private int actualLevel = 0;
+	public IngredientBlackboard actualBB;
 
 	private void Awake()
 	{
@@ -31,12 +33,19 @@ public class GameManager : MonoBehaviour
 		// Aquí puedes realizar cualquier inicialización adicional que necesites
 	}
 
+	public void SpawnBox() { 
+	
+		GameObject newBox = Instantiate(boxPref,boxPref.transform.position, boxPref.transform.rotation);
+		newBox.gameObject.SetActive(true);
+
+	}
+
 	public void SetNewPizza() {
 
 		actualPizza = Instantiate(pizzaPref, pizzaPref.transform.position, pizzaPref.transform.rotation);
 		actualPizza.gameObject.SetActive(true);
 
-		blackBoards[actualLevel].pizza = actualPizza;
+		actualBB.pizza = actualPizza;
 
 	}
 

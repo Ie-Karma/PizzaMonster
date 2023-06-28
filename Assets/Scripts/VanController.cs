@@ -69,7 +69,7 @@ public class VanController : MonoBehaviour
 		{
 			if (throttleVal < -0.4f)
 			{
-				throttleVal = (throttle.value * 0.1f) - 0.5f;
+				throttleVal = (throttle.value - 0.5f)*0.15f;
 				speed = maxSpeed * throttleVal;
 			}
 			else
