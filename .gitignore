@@ -72,3 +72,5 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Assets/Models/Veggies/veggies.fbx
 Assets/Scenes/VanDev/OcclusionCullingData.asset
+Build.zip
+Assets/Scenes/VanDev/OcclusionCullingData.asset
